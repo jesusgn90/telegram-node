@@ -9,40 +9,24 @@ const tg = new Telegram.Telegram(config.TOKEN);
 
 class PingController extends TelegramBaseController {
     pingHandler($) {
-        $.sendMessage('pong')
+        $.sendMessage('pong');
     }
 
     get routes() {
         return {
             'pingCommand': 'pingHandler'
-        }
+        };
     }
 }
 class HelloController extends TelegramBaseController {
     helloHandler($) {
-        var url = 'http://api.elpais.com/ws/LoteriaNavidadPremiados?n=resumen';
-        http.get(url, function(res){
-            var body = '';
-
-            res.on('data', function(chunk){
-                body += chunk;
-            });
-
-            res.on('end', function(){
-                var msg = JSON.parse(body);
-                $.sendMessage(msg.premios.numero1);
-            });
-        }).on('error', function(e){
-            $.sendMessage("Got an error: ", e);
-        });
-
-
+        $.sendMessage('Hello!');
     }
 
     get routes() {
         return {
             'helloCommand': 'helloHandler'
-        }
+        };
     }
 }
 class OtherwiseController extends TelegramBaseController {
