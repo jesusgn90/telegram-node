@@ -1,0 +1,14 @@
+{
+  "name": "telegram-node",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "dependencies": {
+    "telegram-node-bot": "latest",
+    "http": "latest",
+    "mocha": "latest"
+  }
+}
