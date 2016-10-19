@@ -10,7 +10,13 @@ Create a file called config.js with this:
     module.exports = {
         'TOKEN' : 'PUTYOURTOKENHERE'
     }
-    
+
+I like nodemon:
+
+    npm i -g nodemon
+
+Change start script in package.json if you don't like nodemon.
+
 Install dependencies:
 
     npm i
