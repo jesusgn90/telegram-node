@@ -6,6 +6,7 @@ const Telegram = require('telegram-node-bot'),
       config = require('./config');
 
 const TextCommand = Telegram.TextCommand,
+      CustomFilterCommand = Telegram.CustomFilterCommand,
       tg = new Telegram.Telegram(config.TOKEN);
 
 const PingController = require('./controllers/PingController'),
@@ -17,5 +18,5 @@ tg.router
     .when(new TextCommand('start', 'startCommand'),new StartController())
     .when(new TextCommand('ping', 'pingCommand'),new PingController())
     .when(new TextCommand('hello', 'helloCommand'),new HelloController())
-    .otherwise(new OtherwiseController())
+    .otherwise(new OtherwiseController());
 
