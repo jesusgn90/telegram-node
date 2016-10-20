@@ -2,18 +2,30 @@
 const Telegram = require('telegram-node-bot'),
       TelegramBaseController = Telegram.TelegramBaseController;
 
+const fs = require('fs'),
+      nodehun = require('nodehun'),
+      affbuf = fs.readFileSync('./controllers/es_ES.aff'),
+      dictbuf = fs.readFileSync('./controllers/es_ES.dic'),
+      dict = new nodehun(affbuf,dictbuf);
+
 class OtherwiseController extends TelegramBaseController {
     handle($) {
         var text = $.message.text,
             usuario = $.message.from.username;
+        var textArray = text.split(' ');
 
-        var censuradas = ['palabra1','palabra2'],
-            textArray = text.split(' ');
+        for(var i = 0, len = textArray.length; i < len; i++){
+            // Spellcheck
+            dict.spellSuggest(textArray[i],check);
+        }
 
-        for(var i = 0, len = censuradas.length; i < len; i++){
-            if(textArray.indexOf(censuradas[i]) !== -1) {
-                console.log('Palabra censurada detectada.');
-                console.log('Autor: ' + usuario + ', palabra:' + censuradas[i]);
+        function check(err, correct, suggestion, origWord){
+            if(!correct){
+                $.sendMessage(
+                    usuario + ' has dicho ' +
+                    origWord.toUpperCase() +
+                    ', esa palabra no existe, te sugiero usar: ' +
+                    suggestion.toUpperCase());
             }
         }
     }

@@ -7,8 +7,10 @@
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "dependencies": {
-    "telegram-node-bot": "latest",
+    "fs": "0.0.1-security",
     "http": "latest",
-    "mocha": "latest"
+    "mocha": "latest",
+    "nodehun": "^2.0.11",
+    "telegram-node-bot": "latest"
   }
 }
