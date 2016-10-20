@@ -1,7 +1,14 @@
 # telegram-node
 Small bot for Telegram using NodeJS
 
-## How to use ##
+## Contribution?
+
+Of course you are welcome! I wanna continue in a data mining way. Passive bot to 
+analyze words, participation, frequency, etc ... in a Telegram group. 
+
+You are free to fork and pull request the repository.
+
+## How to use 
 
 You need to create a bot with @botfather, then you'll got a TOKEN.
 

@@ -4,6 +4,7 @@ const TelegramBaseController = Telegram.TelegramBaseController;
 class PingController extends TelegramBaseController {
 
     pingHandler($) {
+
         $.sendMessage('pong');
     }
 
