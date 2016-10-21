@@ -9,6 +9,7 @@
   "dependencies": {
     "http": "latest",
     "mocha": "latest",
+    "mongoose": "^4.6.4",
     "telegram-node-bot": "latest"
   }
 }
