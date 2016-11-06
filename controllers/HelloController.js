@@ -1,6 +1,6 @@
 'use strict';
-const Telegram = require('telegram-node-bot');
-const TelegramBaseController = Telegram.TelegramBaseController;
+const Telegram = require('telegram-node-bot'),
+    TelegramBaseController = Telegram.TelegramBaseController;
 class HelloController extends TelegramBaseController {
     helloHandler($) {
         $.sendMessage('Hello!');
