@@ -1,7 +1,5 @@
 'use strict'
-/**
- * Telegram api + token
- */
+/** Telegram api + token */
 const Telegram = require('telegram-node-bot'),
       config = require('./config'),
       mongoose = require('mongoose');

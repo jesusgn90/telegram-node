@@ -2,12 +2,11 @@
 const Telegram = require('telegram-node-bot'),
     TelegramBaseController = Telegram.TelegramBaseController,
     User = require('./../models/user');
-/**
- * Anything not catched by HelloController, ParticipationController, PingController
- */
+
+/** Anything not catched by HelloController, ParticipationController, PingController */
 class OtherwiseController extends TelegramBaseController {
     handle($) {
-        var text = $.message.text,
+        let text = $.message.text,
             username = $.message.from.username;
 
         OtherwiseController.checkUser(username,callbackCheckUser);
@@ -45,7 +44,7 @@ class OtherwiseController extends TelegramBaseController {
         function callbackFindOne(err,user) {
             if (err) throw err;
             if (!user) {
-                var u = new User({username:username, actions:['FIRST INTERACTION']});
+                let u = new User({username:username, actions:['FIRST INTERACTION']});
                 u.save(callbackUserSave);
             } else{
                 done('User already exists');

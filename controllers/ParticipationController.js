@@ -12,7 +12,7 @@ class ParticipationController extends TelegramBaseController {
             Util.calculate(users,callbackCalculate);
         }
         function callbackCalculate(results){
-            var string = Util.buildRanking(results);
+            let string = Util.buildRanking(results);
             $.sendMessage(string);
         }
 
