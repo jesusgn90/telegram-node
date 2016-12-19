@@ -1,6 +1,7 @@
+/* jshint esversion: 6 */
 'use strict';
-module.exports = {
-    calculate: function(users,done){
+(function () {
+    function calculate(users, done) {
         let results = [];
         for (let i = 0, len = users.length; i < len; i++) {
             results.push({
@@ -10,8 +11,9 @@ module.exports = {
         }
         results.sort(this.sortByKey);
         done(results);
-    },
-    sortByKey: function(a,b){
+    }
+
+    function sortByKey(a, b) {
         let keyA = a.number_of_messages,
             keyB = b.number_of_messages;
         if (keyA > keyB) {
@@ -21,18 +23,25 @@ module.exports = {
             return 1;
         }
         return 0;
-    },
-    buildRanking: function(results){
+    }
+
+    function buildRanking(results) {
         let cadena = 'Any messages yet, sorry!';
-        if(results.length){
+        if (results.length) {
             cadena = 'First: ' + results[0].user + ', messages: ' + results[0].number_of_messages;
         }
-        if(results.length > 1){
+        if (results.length > 1) {
             cadena = cadena + '\nSecond: ' + results[1].user + ', messages: ' + results[1].number_of_messages;
         }
-        if(results.length > 2){
+        if (results.length > 2) {
             cadena = cadena + '\nThird: ' + results[2].user + ', messages: ' + results[2].number_of_messages;
         }
         return cadena;
     }
-};
+
+    module.exports = {
+        calculate: calculate,
+        sortByKey: sortByKey,
+        buildRanking: buildRanking
+    }
+})();

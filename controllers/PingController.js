@@ -1,10 +1,9 @@
+/* jshint esversion: 6 */
 'use strict';
-const Telegram = require('telegram-node-bot');
-const TelegramBaseController = Telegram.TelegramBaseController;
+const Telegram = require('telegram-node-bot'),
+    TelegramBaseController = Telegram.TelegramBaseController;
 class PingController extends TelegramBaseController {
-
     pingHandler($) {
-
         $.sendMessage('pong');
     }
 

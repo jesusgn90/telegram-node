@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 'use strict';
 const Telegram = require('telegram-node-bot'),
     TelegramBaseController = Telegram.TelegramBaseController,
