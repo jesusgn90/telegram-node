@@ -7,9 +7,9 @@ const Telegram = require('telegram-node-bot'),
 
 /**
  * @description Anything not catched by HelloController, ParticipationController, PingController
- * @class OtherwiseController
+ * @class ProcessorController
  */
-class OtherwiseController extends TelegramBaseController {
+class ProcessorController extends TelegramBaseController {
     /**
      *
      * @param $
@@ -18,7 +18,7 @@ class OtherwiseController extends TelegramBaseController {
         let text = $.message.text,
             username = $.message.from.username;
 
-        OtherwiseController.checkUser(username, callbackCheckUser);
+        ProcessorController.checkUser(username, callbackCheckUser);
 
         /**
          *
@@ -26,7 +26,7 @@ class OtherwiseController extends TelegramBaseController {
          */
         function callbackCheckUser(msg) {
             console.log(msg);
-            OtherwiseController.addMessage(username, text, callbackAddMessage);
+            ProcessorController.addMessage(username, text, callbackAddMessage);
         }
 
         /**
@@ -113,4 +113,4 @@ class OtherwiseController extends TelegramBaseController {
         }
     }
 }
-module.exports = OtherwiseController;
+module.exports = ProcessorController;
