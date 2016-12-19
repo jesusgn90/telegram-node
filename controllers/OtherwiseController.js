@@ -2,59 +2,114 @@
 'use strict';
 const Telegram = require('telegram-node-bot'),
     TelegramBaseController = Telegram.TelegramBaseController,
-    User = require('./../models/user');
+    User = require('../models/user'),
+    Processor = require('../modules/processor');
 
-/** Anything not catched by HelloController, ParticipationController, PingController */
+/**
+ * @description Anything not catched by HelloController, ParticipationController, PingController
+ * @class OtherwiseController
+ */
 class OtherwiseController extends TelegramBaseController {
+    /**
+     *
+     * @param $
+     */
     handle($) {
         let text = $.message.text,
             username = $.message.from.username;
 
-        OtherwiseController.checkUser(username,callbackCheckUser);
+        OtherwiseController.checkUser(username, callbackCheckUser);
 
-        function callbackCheckUser(msg){
+        /**
+         *
+         * @param msg
+         */
+        function callbackCheckUser(msg) {
             console.log(msg);
-            OtherwiseController.addMessage(username,text,callbackAddMessage);
+            OtherwiseController.addMessage(username, text, callbackAddMessage);
         }
 
-        function callbackAddMessage(){
+        /**
+         *
+         */
+        function callbackAddMessage() {
             console.log(username + ' said: ' + text);
+            console.log('Text is processing...');
+            Processor.process(text, function (err) {
+                if (err) {
+                    console.log('Error', err);
+                } else {
+                    console.log('Success');
+                }
+            });
         }
+
 
     }
 
-    static addMessage(username,text,done){
+    /**
+     *
+     * @param username
+     * @param text
+     * @param done
+     */
+    static addMessage(username, text, done) {
+        User.findOne({username: username}, callbackFindOne);
 
-        User.findOne({username:username},callbackFindOne);
-
-        function callbackFindOne(err,user){
-            if(err) throw err;
+        /**
+         *
+         * @param err
+         * @param user
+         */
+        function callbackFindOne(err, user) {
+            if (err) throw err;
             user.actions.push(text);
             user.save(callbackUserSave);
 
         }
-        function callbackUserSave(err){
-            if(err) throw err;
+
+        /**
+         *
+         * @param err
+         */
+        function callbackUserSave(err) {
+            if (err) throw err;
             done();
         }
 
     }
-    static checkUser(username,done){
-        User.findOne({username:username},callbackFindOne);
 
-        function callbackFindOne(err,user) {
+    /**
+     *
+     * @param username
+     * @param done
+     */
+    static checkUser(username, done) {
+        User.findOne({username: username}, callbackFindOne);
+
+        /**
+         *
+         * @param err
+         * @param user
+         */
+        function callbackFindOne(err, user) {
             if (err) throw err;
+            console.log('Checking if user exists...')
             if (!user) {
-                let u = new User({username:username, actions:['FIRST INTERACTION']});
+                let u = new User({username: username, actions: ['FIRST INTERACTION']});
                 u.save(callbackUserSave);
-            } else{
+            } else {
                 done('User already exists');
             }
         }
 
-        function callbackUserSave(err){
-            if(err) throw err;
-            done('New user created');
+        /**
+         *
+         * @param err
+         */
+        function callbackUserSave(err) {
+            if (err) throw err;
+            done('Success');
         }
     }
 }

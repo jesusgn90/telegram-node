@@ -3,7 +3,10 @@
 const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-/** User model */
+/**
+ *
+ * @description User mongoose model
+ */
 module.exports = mongoose.model(
     'User',
     new Schema({

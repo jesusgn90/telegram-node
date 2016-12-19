@@ -1,5 +1,9 @@
 /* jshint esversion: 6 */
 'use strict';
+/**
+ * @description
+ * @module Util
+ */
 (function () {
     function calculate(users, done) {
         let results = [];
@@ -40,8 +44,22 @@
     }
 
     module.exports = {
+        /**
+         * @function
+         * @description
+         */
         calculate: calculate,
+
+        /**
+         * @function
+         * @description
+         */
         sortByKey: sortByKey,
+
+        /**
+         * @function
+         * @description
+         */
         buildRanking: buildRanking
     }
 })();
