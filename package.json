@@ -2,6 +2,7 @@
   "name": "telegram-node",
   "version": "0.0.0",
   "private": true,
+  "Author": "Jesús Ángel González Novez",
   "scripts": {
     "start": "nodemon ./bot.js",
     "test": "./node_modules/.bin/mocha --reporter spec"
@@ -9,7 +10,6 @@
   "dependencies": {
     "http": "latest",
     "mocha": "latest",
-    "mongoose": "^4.6.4",
     "telegram-node-bot": "latest"
   }
 }
