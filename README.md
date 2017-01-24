@@ -29,6 +29,20 @@ Install dependencies:
 Run your bot:
 
     npm start
+
+### Simple run
+
+If you setup and run this simple skelleton you can do two things.
+
+Say anything to the bot and it shows in console:
+
+   > This is the text entered: anything
+   
+   > This is the user that entered the text: yourusername
+
+Execute /bar command:
+
+   > The bot chat with you and says 'Hello from BarController'
     
 ## File description
 
