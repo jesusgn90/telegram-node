@@ -1,12 +1,10 @@
 # telegram-node
-Small bot for Telegram using NodeJS
+Basic starter template to create a Telegram Bot using NodeJS (ECMAScript 6).
 
 ## Contribution?
 
-Of course you are welcome! I wanna continue in a data mining way. Passive bot to 
-analyze words, participation, frequency, etc ... in a Telegram group. 
-
-You are free to fork and pull request the repository.
+Of course you are welcome! You are free to fork and pull request the repository.
+But remember this is not a complex project, it's a starter template.
 
 ## How to use 
 
@@ -32,3 +30,21 @@ Run your bot:
 
     npm start
     
+## File description
+
+**/controllers/\*.js**
+
+It will handle commands or actions of the users.
+
+**/modules/util.js**
+
+You may need an util.js to write some functions and not overload the controllers.
+
+**/test/foo.js**
+
+The test file, only for developers.
+
+**/bot.js**
+
+The main script, you must to run it to turn on the bot, its like app.js or server.js in a 
+NodeJS web project.
