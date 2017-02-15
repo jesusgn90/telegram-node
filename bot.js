@@ -7,9 +7,6 @@ const Telegram = require('telegram-node-bot'),
     FooController = require('./controllers/FooController'),
     BarController = require('./controllers/BarController');
 
-/**
- *
- */
 tg.router
     .when(new TextCommand('bar', 'barCommand'), new BarController())
     .otherwise(new FooController());

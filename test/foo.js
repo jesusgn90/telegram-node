@@ -4,9 +4,9 @@
 /**
  * Example test
  */
-describe('Foo', function() {
+describe('Foo', () => {
     
-        it('Example test', function(done) {
+        it('Example test', (done) => {
             console.info('Please code a test here!');
             done();
         });
