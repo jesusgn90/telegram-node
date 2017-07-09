@@ -1,13 +1,9 @@
-/* jshint esversion: 6 */
-'use strict';
-{
-    const foo = () => {
+class Util {
+    static foo(){
         console.log('Foo function');
         return null;
     };
 
-    module.exports = {
-        foo
-    };
-
 }
+module.exports = Util;
+

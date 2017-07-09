@@ -1,6 +1,3 @@
-/* jshint esversion: 6 */
-'use strict';
-
 /**
  * Example test
  */
