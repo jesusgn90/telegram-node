@@ -1,4 +1,4 @@
-const Telegram = require('telegram-node-bot'),
+const Telegram               = require('telegram-node-bot');
 const TelegramBaseController = Telegram.TelegramBaseController;
 
 class BarController extends TelegramBaseController {

@@ -1,11 +1,11 @@
-const Telegram = require('telegram-node-bot'),
+const Telegram               = require('telegram-node-bot');
 const TelegramBaseController = Telegram.TelegramBaseController;
 
 class FooController extends TelegramBaseController {
 
     handle($) {
 
-        let text = $.message.text,
+        let text     = $.message.text,
             username = $.message.from.username;
 
         console.log(`This is the text entered: ${text}`);
