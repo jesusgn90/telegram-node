@@ -1,10 +1,17 @@
-const Telegram      = require('telegram-node-bot');
-const config        = require('./config');
-const TextCommand   = Telegram.TextCommand;
-const tg            = new Telegram.Telegram(config.TOKEN);
-const FooController = require('./controllers/FooController');
-const BarController = require('./controllers/BarController');
+const TeleBot = require('telebot');
+const config  = require('./config');
+const bot     = new TeleBot(config.TOKEN);
 
-tg.router
-    .when(new TextCommand('bar', 'barCommand'), new BarController())
-    .otherwise(new FooController());
+bot.on(['/bar'], (msg) => {
+    msg.reply.text('You are under /bar command controller');
+});
+
+bot.on('text', (msg) => {
+    msg.reply.text('Someone write something');
+});
+
+bot.on('sticker', (msg) => {
+    msg.reply.text('Someone sent a sticker');
+});
+
+bot.start();

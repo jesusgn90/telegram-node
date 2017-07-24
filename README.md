@@ -1,5 +1,6 @@
 # telegram-node
-Basic starter template to create a Telegram Bot using NodeJS (ECMAScript 6).
+
+Basic starter template to create a Telegram Bot using Node.js
 
 ## Contribution?
 
@@ -12,15 +13,11 @@ You need to create a bot with @botfather, then you'll got a TOKEN.
 
 Create a file called config.js with this:
 
+```js
     module.exports = {
         'TOKEN' : 'PUTYOURTOKENHERE'
     }
-
-I like nodemon:
-
-    npm i -g nodemon
-
-Change start script in package.json if you don't like nodemon.
+```
 
 Install dependencies:
 
@@ -30,29 +27,7 @@ Run your bot:
 
     npm start
 
-### Simple run
-
-If you setup and run this simple skelleton you can do two things.
-
-Say anything to the bot and it shows in console:
-
-   > This is the text entered: anything
-   
-   > This is the user that entered the text: yourusername
-
-Execute /bar command:
-
-   > The bot chat with you and says 'Hello from BarController'
-    
 ## File description
-
-**/controllers/\*.js**
-
-It will handle commands or actions of the users.
-
-**/modules/util.js**
-
-You may need an util.js to write some functions and not overload the controllers.
 
 **/test/foo.js**
 
