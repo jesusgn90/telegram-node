@@ -1,6 +1,6 @@
 {
   "name": "telegram-node",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "license": "GPL-3.0",
   "description": "Node.js Telegram bot boilerplate",
   "repository": {
@@ -9,10 +9,12 @@
   },
   "author": "Jesús Ángel González Novez",
   "scripts": {
-    "start": "node ./bot.js",
+    "start": "npm run build && node dist/bot.js",
+    "build": "tsc",
     "test": "istanbul cover _mocha -- --recursive"
   },
   "dependencies": {
+    "@types/telebot": "^1.2.1",
     "telebot": "latest"
   },
   "devDependencies": {
