@@ -4,41 +4,34 @@ Basic boilerplate to create a Telegram Bot using Node.js + TypeScript
 
 ## How to use
 
-You need to create a bot with @botfather, then you'll got a TOKEN.
+You need to create a bot with @botfather, then you'll get a TOKEN.
 
-Add your token in file [config.ts](src/config.ts):
+Create a file named `.env` in the root of this project, then add this line:
 
-```js
-const TOKEN: string = 'PUTYOURTOKENHERE';
-export { TOKEN };
+```sh
+TELEGRAM_TOKEN=XXXXXXXXXXXXX
 ```
 
 Install dependencies:
 
 ```sh
-# Global TypeScript compiler
-$ sudo npm install --global typescript@latest
-
-# Bot dependencies
-$ npm install
+$ yarn
 ```
 
 Running the bot:
 
 ```sh
-# This actually runs "npm run build" and then, "node dist/bot.js"
-$ npm start
+$ yarn start
 ```
 
 Just build:
 
 ```sh
-# Compiled files will be under dist/*
-$ npm run build
+$ yarn build
 ```
 
 ## Contribution?
 
-Of course you are welcome! Feel free to fork and to make a pull request against this repository.
+You are welcome! Feel free to fork and to make a pull request against this repository.
 
 But remember, this is not a complex project, it's a starter template.

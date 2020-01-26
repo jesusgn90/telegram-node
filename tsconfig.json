@@ -1,17 +1,43 @@
 {
   "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "es6",
     "module": "commonjs",
+    "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitAny":  true,
+    "noUnusedLocals": true,
+    "moduleResolution": "node",
+    "allowJs": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es6",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "dist",
     "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*"]
-    }
+    "types": [
+      "jest"
+    ],
+    "outDir": "dist/",
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/*.ts",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
