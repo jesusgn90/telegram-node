@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/jesusgn90/telegram-node/tree/master.svg?style=svg)](https://circleci.com/gh/jesusgn90/telegram-node/tree/master)
+
 # Telegram bot boilerplate
 
 Basic boilerplate to create a Telegram Bot using Node.js + TypeScript
