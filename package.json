@@ -1,6 +1,6 @@
 {
   "name": "telegram-node",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "license": "GPL-3.0",
   "description": "Node.js Telegram bot boilerplate",
   "repository": {
@@ -9,11 +9,11 @@
   },
   "author": "Jesús Ángel González Novez",
   "scripts": {
-    "lint": "eslint -c .eslintrc.js src/**/*.ts src/*.ts",
-    "build": "yarn lint && rm -rf dist/ && tsc",
-    "start": "yarn build && node dist/src/index.js",
-    "test:unit": "yarn build && jest dist/tests",
-    "test:unit:ci": "yarn build && jest dist/tests --ci --runInBand"
+    "lint": "eslint -c .eslintrc.js src/**/*.ts src/*.ts tests/**/*.ts",
+    "build": "yarn lint && rimraf ./dist && tsc",
+    "start": "yarn build && node dist/index.js",
+    "test:unit": "yarn build && jest tests",
+    "test:unit:ci": "yarn build && jest tests --ci --runInBand"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -33,6 +33,7 @@
     "eslint-plugin-jest": "^23.6.0",
     "eslint-plugin-vue": "^6.1.2",
     "jest": "^25.1.0",
+    "rimraf": "^3.0.1",
     "ts-jest": "^25.0.0",
     "typescript": "^3.7.5"
   }
