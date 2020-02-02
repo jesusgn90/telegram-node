@@ -1,19 +1,33 @@
-version: 2
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.2.0
+
 jobs:
   check_code:
     docker:
       - image: circleci/node:erbium-stretch
 
-    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn run lint
+      - run: yarn run test:unit:ci
+
+  check_code_windows:
+    executor:
+      name: win/default
+      shell: powershell.exe
 
     steps:
       - checkout
-      - run: cd ~/repo && yarn install
-      - run: cd ~/repo && yarn run lint
-      - run: cd ~/repo && yarn run test:unit:ci
+      - run: yarn install
+      - run: yarn run lint
+      - run: yarn run test:unit:ci
 
 workflows:
   version: 2
   build:
     jobs:
       - check_code
+      - check_code_windows
