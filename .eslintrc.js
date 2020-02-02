@@ -20,7 +20,8 @@ module.exports = {
     'comma-dangle': ['warn', 'always-multiline'],
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/member-delimiter-style': 'off',
-    '@typescript-eslint/no-explicit-any': 'off'
+    '@typescript-eslint/no-explicit-any': 'off',
+    "@typescript-eslint/semi": ["error", "never"]
   },
 
   parser: '@typescript-eslint/parser',
