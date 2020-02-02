@@ -5,26 +5,30 @@ module.exports = {
     node: true,
   },
 
-  // Not a Vue project, but I love its ESLint rules :)
+  plugins: [
+    '@typescript-eslint',
+  ],
+
   extends: [
-    'plugin:vue/recommended',
-    '@vue/standard',
-    '@vue/typescript',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
 
   // Nice for GitHub reviews, also add observers to Arrays
   rules: {
     'comma-dangle': ['warn', 'always-multiline'],
+    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/member-delimiter-style': 'off',
+    '@typescript-eslint/no-explicit-any': 'off'
   },
 
-  parserOptions: {
-    parser: '@typescript-eslint/parser',
-  },
+  parser: '@typescript-eslint/parser',
 
   overrides: [
     {
       files: [
-        '**/tests/unit/**/*',
+        '**/tests/**/*',
       ],
       env: {
         jest: true,
