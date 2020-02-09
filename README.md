@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/jesusgn90/telegram-node/tree/master.svg?style=svg)](https://circleci.com/gh/jesusgn90/telegram-node/tree/master)
+![Telegram CI](https://github.com/jesusgn90/telegram-node/workflows/Telegram%20CI/badge.svg)
 
 # Telegram bot boilerplate
 
