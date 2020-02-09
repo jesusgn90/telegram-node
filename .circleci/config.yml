@@ -4,13 +4,11 @@ jobs:
     docker:
       - image: circleci/node:erbium-stretch
 
-    working_directory: ~/repo
-
     steps:
       - checkout
-      - run: cd ~/repo && yarn install
-      - run: cd ~/repo && yarn run lint
-      - run: cd ~/repo && yarn run test:unit:ci
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test:unit:ci
 
 workflows:
   version: 2

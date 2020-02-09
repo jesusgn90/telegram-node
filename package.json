@@ -10,10 +10,12 @@
   "author": "Jesús Ángel González Novez",
   "scripts": {
     "lint": "eslint -c .eslintrc.js src/**/*.ts src/*.ts tests/**/*.ts",
-    "build": "yarn lint && rimraf ./dist && tsc",
-    "start": "yarn build && node dist/index.js",
-    "test:unit": "yarn build && jest tests",
-    "test:unit:ci": "yarn build && jest tests --ci --runInBand"
+    "prebuild": "yarn lint",
+    "build": "rimraf ./dist && tsc",
+    "prestart": "yarn build",
+    "start": "node dist/index.js",
+    "test:unit": "jest tests",
+    "test:unit:ci": "jest tests --ci --runInBand"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
