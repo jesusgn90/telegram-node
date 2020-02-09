@@ -1,8 +1,21 @@
-version: 2
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.2.0
+
 jobs:
   check_code:
     docker:
       - image: circleci/node:erbium-stretch
+
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test:unit:ci
+
+  check_code_windows:
+    executor: win/default
 
     steps:
       - checkout
@@ -15,3 +28,4 @@ workflows:
   build:
     jobs:
       - check_code
+      - check_code_windows
